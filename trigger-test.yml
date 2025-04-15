@@ -1,10 +1,12 @@
 #development repository
 name: trigger tests in another repositotry
 on: workflow_dispatch
+
 jobs:
  trigger_test:
   runs-on: ubuntu-latest
   #build container #deploy container
+  
   steps:
   - name: trigger the automated test in another repo
     uses: peter-evans/repository-dispatch@v2
