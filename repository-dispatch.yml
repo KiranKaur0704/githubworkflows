@@ -1,8 +1,10 @@
 #automation repository
 name: run the workflow
+
 on:
   repository_dispatch:
     types: [my-event]
+    
 jobs:
  buikd: 
   name: run-worklow
