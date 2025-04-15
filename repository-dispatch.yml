@@ -1,0 +1,17 @@
+#automation repository
+name: run the workflow
+on:
+  repository_dispatch:
+    types: [my-event]
+jobs:
+ buikd: 
+  name: run-worklow
+  runs-on: ubuntu latest
+  steps:
+   - users: actions/checkout@v2
+     with:
+      fetch-depth: 0 
+     name: print trigger details
+     run: |
+       echo ${{ github.event.client_payload.github.action }}
+       echo ${{ github.event.client_payload.github.actor }}

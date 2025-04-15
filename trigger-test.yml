@@ -1,0 +1,15 @@
+#development repository
+name: trigger tests in another repositotry
+on: workflow_dispatch
+jobs:
+ trigger_test:
+  runs-on: ubuntu-latest
+  #build container #deploy container
+  steps:
+  - name: trigger the automated test in another repo
+    uses: peter-evans/repository-dispatch@v2
+    with:
+     token: ${{ secrets.REPO_ACCESS_TOKEN }}
+     repository: KiranKaur0704/githubworkflows
+     event-type: my-event
+     client-payload: '{"github": ${{ tojson(github) }}}'
